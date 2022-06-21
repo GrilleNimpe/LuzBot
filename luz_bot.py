@@ -79,32 +79,32 @@ messagesLUT = {
         "*vous carressez Luz*",
     "!help" :
         """
-        > Luz souhaite la bienvenue lorsque qu'un nouveau membre se joint à La Tavola
-        > Luz dit adieux à ceux qui nous quitte (triste)
-        > Luz prévient lorsque des membres changent de pseudo afin de les reconnaître
-        `!toto` pour avoir son nom de code
-        `!farkdateproduction` pour avoir accès à une chaîne youtube tenue par des chads
-        `!lpsdd` pour rejoindre l'élite de la société
-        `!inf/surv/plombier` pour BEUR
-        `!6` saucisse
-        `!7` chaussette
-        `!beur` rasberry BIP BOUP
-        `!koopafdp` : chef de l'élite de la société
-        `!bonluz` pour luz :)
+> Luz souhaite la bienvenue lorsque qu'un nouveau membre se joint à La Tavola
+> Luz dit adieux à ceux qui nous quitte (triste)
+> Luz prévient lorsque des membres changent de pseudo afin de les reconnaître
+`!toto` pour avoir son nom de code
+`!farkdateproduction` pour avoir accès à une chaîne youtube tenue par des chads
+`!lpsdd` pour rejoindre l'élite de la société
+`!inf/surv/plombier` pour BEUR
+`!6` saucisse
+`!7` chaussette
+`!beur` rasberry BIP BOUP
+`!koopafdp` : chef de l'élite de la société
+`!bonluz` pour luz :)
         """,
     "!code" :
         """
-        Salle à manger : Perm
-        Cuisine : CDI
-        Patate : session
-        Patate au plomb : plombier
-        Viande : Veyon
-        Cuire une patate : Shutdown un pc
-        Patate au BEUR : toto
-        Lipo : technicien
-        BEUR : Bansière est un robot
-        IEUC : Ivan est un cyborg
-        EEUC : Ethan est un capteur
+Salle à manger : Perm
+Cuisine : CDI
+Patate : session
+Patate au plomb : plombier
+Viande : Veyon
+Cuire une patate : Shutdown un pc
+Patate au BEUR : toto
+Lipo : technicien
+BEUR : Bansière est un robot
+IEUC : Ivan est un cyborg
+EEUC : Ethan est un capteur
         """
 }
 
