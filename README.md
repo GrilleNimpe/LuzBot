@@ -1,6 +1,6 @@
 # LuzBot
 Luz is a discord bot, created to make life in the server easier and more fun
-## Langage
+## Languages
 - Python
 ## Authors
 - GrilleNimpe
@@ -17,3 +17,7 @@ Luz is a discord bot, created to make life in the server easier and more fun
 - Give a role to actually have access to the server when new members accept the rules by reacting with the ✅
 - Calculate a useless formula
 - Luz will be able to put sounds of "Qual è la vostra pizza preferita", Bienvenue à Mobiar", and of course the flute and the "Bonjouuur" of the sensor in the vocal channels
+## Content
+- qdj.txt is a database of questions to ask
+- unknown.gif is is the gif of the order !bonluz
+- luz_bot.py is the bot code
