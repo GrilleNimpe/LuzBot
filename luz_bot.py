@@ -93,6 +93,7 @@ messagesLUT = {
 `!7` chaussette
 `!beur` rasberry BIP BOUP
 `!koopafdp` : chef de l'élite de la société
+`!arbre` pour avoir la meilleur blague du monde
 `!bonluz` pour luz :)
         """,
     "!code" :
