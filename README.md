@@ -5,6 +5,7 @@ Luz is a discord bot, created to make life in the server easier and more fun
 ## Authors
 - GrilleNimpe
 - realBoubli
+- LeKoopaFDP
 ## Utility
 - Tell the dev when the bot is online
 - Greetings when a member join a guild
