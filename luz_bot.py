@@ -82,7 +82,7 @@ messagesLUT = {
 > Luz souhaite la bienvenue lorsque qu'un nouveau membre se joint à La Tavola
 > Luz dit adieux à ceux qui nous quitte (triste)
 > Luz prévient lorsque des membres changent de pseudo afin de les reconnaître
-> Luz parait pas comme ça mais c'est un vrai bg
+> Luz parait pas comme ça mais c'est un vrai bg, il sait juste pas faire le ménage parcontre
 `!toto` pour avoir son nom de code
 `!farkdateproduction` pour avoir accès à une chaîne youtube tenue par des chads
 `!lpsdd` pour rejoindre l'élite de la société
