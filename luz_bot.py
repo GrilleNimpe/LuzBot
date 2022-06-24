@@ -77,6 +77,8 @@ messagesLUT = {
         "🍆",
     "!bonluz" :
         "*vous carressez Luz*",
+    "!arbre" :
+        "tu connais la blague de l'arbre ? arbre https://youtube.com/shorts/XG6bx1rtsPM?feature=share",
     "!help" :
         """
 > Luz souhaite la bienvenue lorsque qu'un nouveau membre se joint à La Tavola
