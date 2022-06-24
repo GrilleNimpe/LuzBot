@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 
 """
+privates tokens
+"""
+import tokens
+
+"""
 Lib for the bot
 """
 import discord
@@ -9,10 +14,10 @@ default_intents = discord.Intents.default()
 default_intents.value = 32511 # escape a pylint false error, same as default_intents.members = True
 print(default_intents.members)
 
-tkn = input("Enter token: ")
-welcome_channel = input("Enter welcome channel token: ")
-goodbye_channel = input("Enter goodbye channel token: ")
-update_channel = input("Enter update channel token: ")
+tkn = tokens.get_token()
+welcome_channel = tokens.get_wc_chan()
+goodbye_channel = tokens.get_gb_chan()
+update_channel = tokens.get_up_chan()
 
 client = discord.Client(intents=default_intents)
 
@@ -64,7 +69,7 @@ messagesLUT = {
     "!lpsdd" :
         "https://discord.gg/HyQ9mPd5",
     "!farkdateproduction" :
-        "https://www.youtube.com/channel/UC0f0m2dVJSu9TXkh23Unhhw/featured",
+        "https://www.youtube.com/channel/UC0f0m2dVJSu9TXkh23Unhhw",
     "!6" :
         "Saucisse",
     "!7" :
@@ -78,13 +83,13 @@ messagesLUT = {
     "!bonluz" :
         "*vous carressez Luz*",
     "!arbre" :
-        "tu connais la blague de l'arbre ? arbre https://youtube.com/shorts/XG6bx1rtsPM?feature=share",
+        "Tu connais la blague de l'arbre ? Arbre\nhttps://www.youtube.com/watch?v=XG6bx1rtsPM",
     "!help" :
         """
-> Luz souhaite la bienvenue lorsque qu'un nouveau membre se joint à La Tavola
-> Luz dit adieux à ceux qui nous quitte (triste)
-> Luz prévient lorsque des membres changent de pseudo afin de les reconnaître
-> Luz parait pas comme ça mais c'est un vrai bg, il sait juste pas faire le ménage parcontre
+> Luz souhaite la bienvenue lorsque qu'un nouveau membre se joint à La Tavola.
+> Luz dit adieux à ceux qui nous quitte (triste).
+> Luz prévient lorsque des membres changent de pseudo afin de les reconnaître.
+> Luz parait pas comme ça mais c'est un vrai bg, il sait juste pas faire le ménage par contre.
 `!toto` pour avoir son nom de code
 `!farkdateproduction` pour avoir accès à une chaîne youtube tenue par des chads
 `!lpsdd` pour rejoindre l'élite de la société
