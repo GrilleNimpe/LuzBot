@@ -110,10 +110,13 @@ Patate au plomb : plombier
 Viande : Veyon
 Cuire une patate : Shutdown un pc
 Patate au BEUR : toto
-Lipo : technicien
+Lipo : technicien // admdtyb01 // tyburski
 BEUR : Bansière est un robot
 IEUC : Ivan est un cyborg
 EEUC : Ethan est un capteur
+Adwin64 : Fenêtre de EduPython
+Pinacle : 3e étage du BatE
+
         """
 }
 
