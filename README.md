@@ -22,3 +22,4 @@ Luz is a discord bot, created to make life in the server easier and more fun
 - qdj.txt is a database of questions to ask
 - unknown.gif is is the gif of the order !bonluz
 - luz_bot.py is the bot code
+- Audio is a directory containing the necessary audio files
