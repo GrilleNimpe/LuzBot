@@ -116,6 +116,14 @@ IEUC : Ivan est un cyborg
 EEUC : Ethan est un capteur
 Adwin64 : Fenêtre de EduPython
 Pinacle : 3e étage du BatE
+Orchidée : Une communoté
+Mario : Mme Jarry
+Yoshi // Stéphane Plaza : Mr Jarry
+LipoSquad : Mini Lipos
+Gus Fring : Yather
+Walter White : Xturfi
+Patrick Bale : Losprunios
+Couille : PtiPrinceLU
 
         """
 }
