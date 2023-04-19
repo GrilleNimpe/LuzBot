@@ -14,10 +14,8 @@ Luz is a discord bot, created to make life in the server easier and more fun
 - Inform the guild when a member change his name
 - Has a multitude of fun controls 
 - Force Luz to play 
-## Future projects
 - Ask a personal question every day to start a conversation
-- Give a role to actually have access to the server when new members accept the rules by reacting with the ✅
-- Luz will be able to put sounds of "Qual è la vostra pizza preferita", "Bienvenue à Mobiar", the high school bell, and of course the flute and the "Bonjouuur" of the sensor in the vocal channels
+- Luz is able to put sounds of "Qual è la vostra pizza preferita", "Bienvenue à Mobiar", the high school bell, and of course the flute and the "Bonjouuur" of the sensor in the vocal channels
 ## Content
 - question.txt is a database of questions to ask from https://pastebin.com/q016vjxE
 - unknown.gif is is the gif of the order !bonluz
