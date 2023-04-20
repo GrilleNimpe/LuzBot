@@ -3,137 +3,89 @@
 """
 privates tokens
 """
-import tokens
+from tkn import key,welcome,goodbye,update # key : discord bot token // Other : Channels ID
 
 """
 Lib for the bot
 """
 import discord
+from discord import *
+from discord.utils import get
+from discord.ext import commands
 
 default_intents = discord.Intents.default()
-default_intents.value = 32511 # escape a pylint false error, same as default_intents.members = True
-print(default_intents.members)
+default_intents.members = True
 
-tkn = tokens.get_token()
-welcome_channel = tokens.get_wc_chan()
-goodbye_channel = tokens.get_gb_chan()
-update_channel = tokens.get_up_chan()
-
-client = discord.Client(intents=default_intents)
+intents = discord.Intents.all()
+bot = commands.Bot(command_prefix='.',intents=intents)
 
 
-@client.event
+@bot.event
 async def on_ready():
     """
     Tell the dev when the bot is online
     """
-    print("Le bot est connecté")
+    print("The bot is online")
 
-@client.event
+@bot.event
 async def on_member_join(member):
     """
     Greetings when a member join a guild
     """
-    bienvenue: discord.TextChannel = client.get_channel(welcome_channel)
+    bienvenue: discord.TextChannel = client.get_channel(welcome)
     await bienvenue.send(content=
-        f"Un giga beau gosse vient d'arriver sur le serveur, son nom est {member.display_name} !"
+        f"Welcome {member.display_name} !"
     )
 
-@client.event
+@bot.event
 async def on_member_remove(member):
     """
     Goodbye when a member leave a guild
     """
-    a_la_prochaine: discord.TextChannel = client.get_channel(goodbye_channel)
-    await a_la_prochaine.send(content=f"A la revoyure {member.display_name} !")
+    a_la_prochaine: discord.TextChannel = client.get_channel(goodbye)
+    await a_la_prochaine.send(content=f"Goodbye {member.display_name} !")
 
-@client.event
+@bot.event
 async def on_disconnect():
     """
     Tell the dev when the bot is offline
     """
-    print("Le bot est déconnecté")
+    print("The bot is offline")
 
-@client.event
+@bot.event
 async def on_member_update(before, after):
     """
     Inform the guild when a member change his name
     """
-    changement: discord.TextChannel = client.get_channel(update_channel)
-    if {before.display_name} == {after.display_name}:
-        print("changement inutile")
-    else:
-        await changement.send(content=f"{before.display_name} est devenue {after.display_name} !")
+    changement: discord.TextChannel = client.get_channel(update)
+    if {before.display_name} != {after.display_name}:
+        await changement.send(content=f"{before.display_name} became {after.display_name} !")
+
+
+
+
+filedico = {
+    "!commande" : 'FILE',
+    "!commande_2" : 'FILE_2',
+}
 
 messagesLUT = {
-    "!lpsdd" :
-        "https://discord.gg/HyQ9mPd5",
     "!farkdateproduction" :
         "https://www.youtube.com/channel/UC0f0m2dVJSu9TXkh23Unhhw",
-    "!6" :
-        "Saucisse",
-    "!7" :
-        "Chaussette",
-    "!toto" :
-        "Patate au BEUR",
-    "!beur" :
-        "Brassière est un robot BIP BOUP",
-    "!koopafdp" :
-        "🍆",
-    "!bonluz" :
-        "*vous carressez Luz*",
-    "!arbre" :
-        "Tu connais la blague de l'arbre ? Arbre\nhttps://www.youtube.com/watch?v=XG6bx1rtsPM",
     "!help" :
         """
-> Luz souhaite la bienvenue lorsque qu'un nouveau membre se joint à La Tavola.
-> Luz dit adieux à ceux qui nous quitte (triste).
-> Luz prévient lorsque des membres changent de pseudo afin de les reconnaître.
-> Luz parait pas comme ça mais c'est un vrai bg, il sait juste pas faire le ménage par contre.
-`!toto` pour avoir son nom de code
-`!farkdateproduction` pour avoir accès à une chaîne youtube tenue par des chads
-`!lpsdd` pour rejoindre l'élite de la société
-`!inf/surv/plombier` pour BEUR
-`!6` saucisse
-`!7` chaussette
-`!beur` rasberry BIP BOUP
-`!koopafdp` : chef de l'élite de la société
-`!arbre` pour avoir la meilleur blague du monde
-`!bonluz` pour luz :)
-        """,
-    "!code" :
-        """
-Salle à manger : Perm
-Cuisine : CDI
-Patate : session
-Patate au plomb : plombier
-Viande : Veyon
-Cuire une patate : Shutdown un pc
-Patate au BEUR : toto
-Lipo : technicien // admdtyb01 // tyburski
-BEUR : Bansière est un robot
-IEUC : Ivan est un cyborg
-EEUC : Ethan est un capteur
-Adwin64 : Fenêtre de EduPython
-Pinacle : 3e étage du BatE
-Orchidée : Une communoté
-Mario : Mme Jarry
-Yoshi // Stéphane Plaza : Mr Jarry
-LipoSquad : Mini Lipos
-Gus Fring : Yather
-Walter White : Xturfi
-Patrick Bale : Losprunios
-Couille : PtiPrinceLU
-
+> Luz welcomes when a new member joins the server.
+> Luz says goodbye to those who leave us (sad).
+> Luz warns when members change their nickname in order to recognize them.
+> Luz has some really cool commands
+> Luz can ask a question to start a conversation
+> Luz doesn't look like that but he's a real chad, he just can't clean.
+> Luz can play any game you want (even those that don't exist)
         """
 }
 
-fileLUT = {
-    "!bonluz" :
-        'unknown.gif'
-}
 
-@client.event
+@bot.event
 async def on_message(message : discord.Message):
     """
     Differents commands execution
@@ -146,12 +98,23 @@ async def on_message(message : discord.Message):
         if messagesLUT.get(cmdmsg) is not None:
             iscmdfound = True
             msg_content = messagesLUT.get(cmdmsg)
-        if fileLUT.get(cmdmsg) is not None:
+        if filedico.get(cmdmsg) is not None:
             iscmdfound = True
-            msg_file = discord.File(fileLUT.get(cmdmsg))
+            msg_file = discord.File(filedico.get(cmdmsg))
         if iscmdfound:
             await message.channel.send(content=msg_content, file=msg_file)
     if cmdmsg == "!stop" and message.author.guild_permissions.administrator:
-        await client.close()
+        await bot.close()
+    if cmdmsg.startswith("!play"):
+        await bot.change_presence(status=discord.Status.idle, activity=discord.Game(cmdmsg[6:]))
+    if cmdmsg == "!question":
+        with open('question.txt', 'r+') as f1:
+            question = f1.readline().strip()
+            lines = f1.readlines()
+            f1.seek(0)
+            f1.writelines(lines[0:])
+            f1.truncate()
+            f1.close()
+            await message.channel.send(question)
 
-client.run(tkn) #Saisir la clé du bot
+bot.run(key)
