@@ -122,8 +122,8 @@ async def on_message(message : discord.Message):
             f1.close()
             await message.channel.send(question)
     if cmdmsg.startswith("!create") and len(cmdmsg) != 7:
-        if cmdmsg[8] == "!" and 10+len(commande(cmdmsg)) != len(cmdmsg):
-            if reponse(cmdmsg)[0] != "!":
-                messagesLUT[commande(cmdmsg)] = reponse(cmdmsg)
+        if cmdmsg[8] == "!" and 10+len(command(cmdmsg)) != len(cmdmsg):
+            if answer(cmdmsg)[0] != "!":
+                messagesLUT[command(cmdmsg)] = answer(cmdmsg)
                 await message.channel.send("Command created")
 bot.run(key)
