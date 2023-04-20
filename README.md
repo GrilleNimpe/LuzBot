@@ -16,8 +16,7 @@ Luz is a discord bot, created to make life in the server easier and more fun
 - Force Luz to play 
 - Ask a personal question every day to start a conversation
 - Luz is able to put sounds of your choice
-## Future Project
-- commands to create commands
+- !create to create commands
 ## Content
 - question.txt is a database of questions to ask from https://pastebin.com/q016vjxE
 - luz_bot.py is the bot code
