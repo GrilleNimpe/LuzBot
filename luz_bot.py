@@ -65,8 +65,8 @@ async def on_member_update(before, after):
 
 
 filedico = {
-    "!commande" : 'FILE',
-    "!commande_2" : 'FILE_2',
+    "!command" : 'FILE',
+    "!command_2" : 'FILE_2',
 }
 
 messagesLUT = {
@@ -81,7 +81,11 @@ messagesLUT = {
 > Luz can ask a question to start a conversation
 > Luz doesn't look like that but he's a real chad, he just can't clean.
 > Luz can play any game you want (even those that don't exist)
-        """
+        """,
+    "!command":
+        "ANSWER",
+    "!command_2":
+        "ANSWER_2"
 }
 
 
