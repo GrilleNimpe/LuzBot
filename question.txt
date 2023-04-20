@@ -697,8 +697,3 @@
 7	When eating cereal, do you prefer to pour the milk into the cereal, or vice versa?
 6	When typing numbers, do you use the Numpad, or the row of numbers above the letters?
 5	What's your favorite color?
-4	Discussion of frequency of questions and responses
-3	Discussion of character of questions and responses
-2	Discussion of format of questions and responses
-1	Discussion of character of friendship-related activities
-0	Meta-level aids to conversation
