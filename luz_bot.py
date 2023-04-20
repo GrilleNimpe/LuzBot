@@ -12,6 +12,7 @@ import discord
 from discord import *
 from discord.utils import get
 from discord.ext import commands
+from fonction import *
 
 default_intents = discord.Intents.default()
 default_intents.members = True
