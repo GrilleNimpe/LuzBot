@@ -73,6 +73,7 @@ messagesLUT = {
         "https://www.youtube.com/channel/UC0f0m2dVJSu9TXkh23Unhhw",
     "!help" :
         """
+`!create !command : answer` Please respect the spaces
 > Luz welcomes when a new member joins the server.
 > Luz says goodbye to those who leave us (sad).
 > Luz warns when members change their nickname in order to recognize them.
