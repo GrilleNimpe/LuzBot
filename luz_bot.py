@@ -9,8 +9,6 @@ from tkn import key,welcome,goodbye,update # key : discord bot token // Other : 
 Lib for the bot
 """
 import discord
-from discord import *
-from discord.utils import get
 from discord.ext import commands
 from fonction import *
 
