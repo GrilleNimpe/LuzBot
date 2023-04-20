@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-def commande(cara):
+def command(cara):
     com = cara[8:][0]
     i = 9
     while cara[i] != ":" and len(com) < len(cara):
@@ -7,7 +7,7 @@ def commande(cara):
         i += 1
     return(com.rstrip(" "))
 
-def reponse(cara):
+def answer(cara):
     return(cara[11+len(commande(cara)):])
 
 def question():
