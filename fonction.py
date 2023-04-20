@@ -8,7 +8,7 @@ def command(cara):
     return(com.rstrip(" "))
 
 def answer(cara):
-    return(cara[11+len(commande(cara)):])
+    return(cara[11+len(command(cara)):])
 
 def question():
     with open('question.txt', 'r+') as f1:
