@@ -20,3 +20,4 @@ Luz is a discord bot, created to make life in the server easier and more fun
 ## Content
 - question.txt is a database of questions to ask from https://pastebin.com/q016vjxE
 - luz_bot.py is the bot code
+- fonction.py multiples fonctions for Luz
