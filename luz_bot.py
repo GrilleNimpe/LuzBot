@@ -107,22 +107,15 @@ async def on_message(message : discord.Message):
             msg_file = discord.File(filedico.get(cmdmsg))
         if iscmdfound:
             await message.channel.send(content=msg_content, file=msg_file)
-    if cmdmsg == "!stop" and message.author.guild_permissions.administrator:
-        await bot.close()
-    if cmdmsg.startswith("!play"):
-        await bot.change_presence(status=discord.Status.idle, activity=discord.Game(cmdmsg[6:]))
-    if cmdmsg == "!question":
-        with open('question.txt', 'r+') as f1:
-            question = f1.readline().strip()
-            lines = f1.readlines()
-            f1.seek(0)
-            f1.writelines(lines[0:])
-            f1.truncate()
-            f1.close()
-            await message.channel.send(question)
-    if cmdmsg.startswith("!create") and len(cmdmsg) != 7:
-        if cmdmsg[8] == "!" and 10+len(command(cmdmsg)) != len(cmdmsg):
-            if answer(cmdmsg)[0] != "!":
-                messagesLUT[command(cmdmsg)] = answer(cmdmsg)
-                await message.channel.send("Command created")
+        if cmdmsg.startswith("!play"):
+            await bot.change_presence(status=discord.Status.idle, activity=discord.Game(cmdmsg[6:]))
+        if cmdmsg == "!question":
+            await message.channel.send(ffile("question.txt"))
+        if cmdmsg.startswith("!create") and len(cmdmsg) != 7:
+            commande_msg = command(cmdmsg)
+            answer_msg = answer(cmdmsg)
+            if cmdmsg[8] == "!" and 10+len(commande_msg) != len(cmdmsg):
+                if answer_msg[0] != "!":
+                    messagesLUT[commande_msg] = answer_msg
+                    await message.channel.send("Command created")
 bot.run(key)
