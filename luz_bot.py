@@ -77,7 +77,7 @@ async def on_message(message : discord.Message):
         if cmdmsg.startswith("!play"):
             await bot.change_presence(status=discord.Status.idle, activity=discord.Game(cmdmsg[6:]))
         if cmdmsg == "!question":
-            await message.channel.send(ffile("question.txt"))
+            await message.channel.send(question())
         if cmdmsg.startswith("!create") and len(cmdmsg) != 7:
             commande_msg = command(cmdmsg)
             answer_msg = answer(cmdmsg)
