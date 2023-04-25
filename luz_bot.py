@@ -44,9 +44,6 @@ messagesLUT = {
     "!help" :
         """
 `!create !command : answer` Please respect the spaces
-> Luz welcomes when a new member joins the server.
-> Luz says goodbye to those who leave us (sad).
-> Luz warns when members change their nickname in order to recognize them.
 > Luz has some really cool commands
 > Luz can ask a question to start a conversation
 > Luz doesn't look like that but he's a real chad, he just can't clean.
