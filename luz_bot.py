@@ -27,41 +27,11 @@ async def on_ready():
     print("The bot is online")
 
 @bot.event
-async def on_member_join(member):
-    """
-    Greetings when a member join a guild
-    """
-    bienvenue: discord.TextChannel = client.get_channel(welcome)
-    await bienvenue.send(content=
-        f"Welcome {member.display_name} !"
-    )
-
-@bot.event
-async def on_member_remove(member):
-    """
-    Goodbye when a member leave a guild
-    """
-    a_la_prochaine: discord.TextChannel = client.get_channel(goodbye)
-    await a_la_prochaine.send(content=f"Goodbye {member.display_name} !")
-
-@bot.event
 async def on_disconnect():
     """
     Tell the dev when the bot is offline
     """
     print("The bot is offline")
-
-@bot.event
-async def on_member_update(before, after):
-    """
-    Inform the guild when a member change his name
-    """
-    changement: discord.TextChannel = client.get_channel(update)
-    if {before.display_name} != {after.display_name}:
-        await changement.send(content=f"{before.display_name} became {after.display_name} !")
-
-
-
 
 filedico = {
     "!command" : 'FILE',
