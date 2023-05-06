@@ -19,3 +19,8 @@ def question():
             f1.truncate()
             f1.close()
     return(qst)
+
+def save(chaine):
+    with open("commands.txt","a",encoding="utf-8") as f:
+        f.write(chaine)
+        f.close()
