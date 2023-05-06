@@ -32,9 +32,8 @@ messagesLUT = {
 `!commands` To list the commands
 `!create !command : answer` Please respect the spaces
 > Luz has some really cool commands
-> Luz can ask a question to start a conversation
 > Luz doesn't look like that but he's a real chad, he just can't clean.
-> Luz can play any game you want (even those that don't exist)
+> Luz can play any game you want (even those that don't exist) with !play
         """,
     "!command":
         "ANSWER",
