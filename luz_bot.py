@@ -3,7 +3,7 @@
 """
 privates tokens
 """
-from tkn import key,welcome,goodbye,update # key : discord bot token // Other : Channels ID
+from tkn import key # key : discord bot token // Other : Channels ID
 
 """
 Lib for the bot
@@ -38,24 +38,6 @@ filedico = {
     "!command_2" : 'FILE_2',
 }
 
-messagesLUT = {
-    "!farkdateproduction" :
-        "https://www.youtube.com/channel/UC0f0m2dVJSu9TXkh23Unhhw",
-    "!help" :
-        """
-`!create !command : answer` Please respect the spaces
-> Luz has some really cool commands
-> Luz can ask a question to start a conversation
-> Luz doesn't look like that but he's a real chad, he just can't clean.
-> Luz can play any game you want (even those that don't exist)
-        """,
-    "!command":
-        "ANSWER",
-    "!command_2":
-        "ANSWER_2"
-}
-
-
 @bot.event
 async def on_message(message : discord.Message):
     """
@@ -76,13 +58,14 @@ async def on_message(message : discord.Message):
             await message.channel.send(content=msg_content, file=msg_file)
         if cmdmsg.startswith("!play"):
             await bot.change_presence(status=discord.Status.idle, activity=discord.Game(cmdmsg[6:]))
-        if cmdmsg == "!question":
-            await message.channel.send(question())
+        if cmdmsg == "!commands":
+            await message.channel.send(str(messagesLUT.keys())[9:].strip("()[]").replace(",", "\n"))
         if cmdmsg.startswith("!create") and len(cmdmsg) != 7:
             commande_msg = command(cmdmsg)
             answer_msg = answer(cmdmsg)
             if cmdmsg[8] == "!" and 10+len(commande_msg) != len(cmdmsg):
                 if answer_msg[0] != "!":
                     messagesLUT[commande_msg] = answer_msg
+                    save(f"{commande_msg}"+" : "+f"{answer_msg}"+" ,")
                     await message.channel.send("Command created")
 bot.run(key)
