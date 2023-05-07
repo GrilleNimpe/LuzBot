@@ -43,7 +43,7 @@ async def on_message(message : discord.Message):
     """
     Differents commands execution
     """
-    cmdmsg = message.content.lower()
+    cmdmsg = message.content
     if cmdmsg.startswith("!"):
         iscmdfound = False
         msg_content = str()
