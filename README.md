@@ -1,5 +1,3 @@
-# LuzBot
-Luz is a discord bot, created to make life in the server easier and more fun
 ## Languages
 - Python
 ## Authors
