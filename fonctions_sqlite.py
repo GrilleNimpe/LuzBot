@@ -3,10 +3,11 @@ import sqlite3
 
 """Fonction SQLite"""
 
-def command_exist(message):
+
+def comand_exist(message):
     conn = sqlite3.connect('luzdata.db')
     cur = conn.cursor()
-    cur.execute(f'SELECT answer FROM Commande WHERE command = "{message}"')
+    cur.execute(f'SELECT answer FROM Commande WHERE command = ?', (message,))
     resultat = cur.fetchone()
     conn.commit()
     conn.close()
@@ -15,7 +16,7 @@ def command_exist(message):
 def serv_exist(message):
     conn = sqlite3.connect('luzdata.db')
     cur = conn.cursor()
-    cur.execute(f'SELECT id_serveur FROM Luztable WHERE serveur = "{message}"')
+    cur.execute(f'SELECT id_serveur FROM Luztable WHERE serveur = ?', (message,))
     resultat = cur.fetchone()
     conn.commit()
     conn.close()
@@ -24,81 +25,75 @@ def serv_exist(message):
 def user_exist(message):
     conn = sqlite3.connect('luzdata.db')
     cur = conn.cursor()
-    cur.execute(f'SELECT id_user FROM User WHERE name = "{message}"')
+    cur.execute('SELECT id_user FROM User WHERE name = ?', (message,))
     resultat = cur.fetchone()
     conn.commit()
     conn.close()
     return(resultat != None)
 
+
 def recup_commande(message):
     conn = sqlite3.connect('luzdata.db')
     cur = conn.cursor()
-    cur.execute(f'SELECT answer FROM Commande WHERE command = "{message}"')
+    cur.execute('SELECT answer FROM Commande WHERE command = ?', (message,))
     resultat = cur.fetchone()[0]
     conn.commit()
     conn.close()
-    return(resultat)
+    return resultat
 
 def utilisation_commande(message):
     conn = sqlite3.connect('luzdata.db')
     cur = conn.cursor()
-    cur.execute(f'UPDATE Commande SET utilisation = utilisation + 1 WHERE command = "{message}"')
-    cur.execute(f'UPDATE User SET use = use + 1 WHERE id_user = (SELECT id_user FROM Commande WHERE command = "{message}")')
+    cur.execute('UPDATE Commande SET utilisation = utilisation + 1 WHERE command = ?', (message,))
+    cur.execute('UPDATE User SET use = use + 1 WHERE id_user = (SELECT id_user FROM Commande WHERE command = ?)', (message,))
     conn.commit()
     conn.close()
 
 def supprimer(message):
     conn = sqlite3.connect('luzdata.db')
     cur = conn.cursor()
-    cur.execute(f'UPDATE User SET creation = creation - 1 WHERE id_user = (SELECT id_user FROM Commande WHERE command = "{message}")')
-    cur.execute(f'DELETE FROM Commande WHERE command = "{message}"')
+    cur.execute('UPDATE User SET creation = creation - 1 WHERE id_user = (SELECT id_user FROM Commande WHERE command = ?)', (message,))
+    cur.execute('DELETE FROM Commande WHERE command = ?', (message,))
     conn.commit()
     conn.close()
 
-def add_serv(serv):
-    conn = sqlite3.connect('luzdata.db')
-    cur = conn.cursor()
-    cur.execute(f'INSERT INTO Luztable (serveur) VALUES ("{serv}")')
-    conn.commit()
-    conn.close()
 
 def add_user(user):
     conn = sqlite3.connect('luzdata.db')
     cur = conn.cursor()
-    cur.execute(f'INSERT INTO User (name, use, creation) VALUES ("{user}",0,1)')
+    cur.execute('INSERT INTO User (name, use, creation) VALUES (?, 0, 1)', (user,))
     conn.commit()
     conn.close()
 
-def add_commande(cmd,ans,user,serv,voc):
+def add_commande(cmd, ans, user, serv, voc):
     conn = sqlite3.connect('luzdata.db')
     cur = conn.cursor()
-    cur.execute(f'INSERT INTO Commande (command, answer, utilisation, id_user, id_serveur, vocal) VALUES ("{cmd}","{ans}",0,(SELECT id_user FROM User WHERE name = "{user}"),(SELECT id_serveur FROM Luztable WHERE serveur = "{serv}"),"{voc}")')
-    cur.execute(f'UPDATE User SET creation = creation + 1 WHERE id_user = (SELECT id_user FROM Commande WHERE command = "{cmd}")')
+    cur.execute('INSERT INTO Commande (command, answer, utilisation, id_user, id_serveur, vocal) VALUES (?, ?, 0, (SELECT id_user FROM User WHERE name = ?), (SELECT id_serveur FROM Luztable WHERE serveur = ?), ?)', (cmd, ans, user, serv, voc))
+    cur.execute('UPDATE User SET creation = creation + 1 WHERE id_user = (SELECT id_user FROM Commande WHERE command = ?)', (cmd,))
     conn.commit()
     conn.close()
-
-def commande_créée(user):
+def commande_creee(user):
     conn = sqlite3.connect('luzdata.db')
     cur = conn.cursor()
-    cur.execute(f'SELECT creation FROM User WHERE name = "{user}"')
+    cur.execute('SELECT creation FROM User WHERE name = ?', (user,))
     resultat = cur.fetchone()[0]
     conn.commit()
     conn.close()
-    return(resultat)
+    return resultat
 
 def nbr_utilisation_user(user):
     conn = sqlite3.connect('luzdata.db')
     cur = conn.cursor()
-    cur.execute(f'SELECT use FROM User WHERE name = "{user}"')
+    cur.execute('SELECT use FROM User WHERE name = ?', (user,))
     resultat = cur.fetchone()[0]
     conn.commit()
     conn.close()
-    return(resultat)
+    return resultat
 
 def createur_cmd(cmd):
     conn = sqlite3.connect('luzdata.db')
     cur = conn.cursor()
-    cur.execute(f'SELECT name FROM User WHERE id_user = (SELECT id_user FROM Commande WHERE command = "{cmd}")')
+    cur.execute('SELECT name FROM User WHERE id_user = (SELECT id_user FROM Commande WHERE command = ?)', (cmd,))
     resultat = cur.fetchone()[0]
     conn.commit()
     conn.close()
@@ -107,7 +102,7 @@ def createur_cmd(cmd):
 def nbr_utilisation_cmd(cmd):
     conn = sqlite3.connect('luzdata.db')
     cur = conn.cursor()
-    cur.execute(f'SELECT utilisation FROM Commande WHERE command = "{cmd}"')
+    cur.execute(f'SELECT utilisation FROM Commande WHERE command = ?', (cmd,))
     resultat = cur.fetchone()[0]
     conn.commit()
     conn.close()
@@ -116,7 +111,7 @@ def nbr_utilisation_cmd(cmd):
 def cmd_serv(cmd):
     conn = sqlite3.connect('luzdata.db')
     cur = conn.cursor()
-    cur.execute(f'SELECT serveur FROM Luztable WHERE id_serveur = (SELECT id_serveur FROM Commande WHERE command = "{cmd}")')
+    cur.execute(f'SELECT serveur FROM Luztable WHERE id_serveur = (SELECT id_serveur FROM Commande WHERE command = ?)', (cmd,))
     resultat = cur.fetchone()[0]
     conn.commit()
     conn.close()
@@ -151,7 +146,7 @@ def class_user():
 def cmd_fame(profile):
     conn = sqlite3.connect('luzdata.db')
     cur = conn.cursor()
-    cur.execute(f'SELECT command FROM Commande WHERE id_user = (SELECT id_user FROM User WHERE name = "{profile}") ORDER BY utilisation DESC')
+    cur.execute(f'SELECT command FROM Commande WHERE id_user = (SELECT id_user FROM User WHERE name = ?) ORDER BY utilisation DESC', (profile,))
     resultat = cur.fetchone()
     if resultat == None:
         resultat = ["None"]
@@ -162,7 +157,7 @@ def cmd_fame(profile):
 def vocal_exist(message):
     conn = sqlite3.connect('luzdata.db')
     cur = conn.cursor()
-    cur.execute(f'SELECT vocal FROM Commande WHERE command = "{message}"')
+    cur.execute(f'SELECT vocal FROM Commande WHERE command = ?', (message,))
     resultat = cur.fetchone()
     conn.commit()
     conn.close()
@@ -171,7 +166,7 @@ def vocal_exist(message):
 def vocal_cmd(message):
     conn = sqlite3.connect('luzdata.db')
     cur = conn.cursor()
-    cur.execute(f'SELECT vocal FROM Commande WHERE command = "{message}"')
+    cur.execute(f'SELECT vocal FROM Commande WHERE command = ?', (message,))
     resultat = cur.fetchone()
     conn.commit()
     conn.close()
@@ -193,7 +188,7 @@ def list_serv():
 def class_commande_serv(serv):
     conn = sqlite3.connect('luzdata.db')
     cur = conn.cursor()
-    cur.execute(f'SELECT command, utilisation FROM Commande WHERE id_serveur = (SELECT id_serveur FROM Luztable WHERE serveur = "{serv}") ORDER BY utilisation DESC')
+    cur.execute(f'SELECT command, utilisation FROM Commande WHERE id_serveur = (SELECT id_serveur FROM Luztable WHERE serveur = ?) ORDER BY utilisation DESC', (serv,))
     data = cur.fetchall()
     conn.commit()
     conn.close()
